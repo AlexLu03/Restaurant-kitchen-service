@@ -1,4 +1,3 @@
-Створення системи керування, у якій кухарі можуть створювати нові страви та їх типи, а також вказувати кухарів, відповідальних за приготування кожної страви.
-Маємо модель кухарів, страви та тип страви
-Кухар - страва - тип страви
+We are building a database management service that allows for identifying suitable chefs for specific tasks.
+The model relationships are as shown in the image below.
 [Models relation](image.png)
