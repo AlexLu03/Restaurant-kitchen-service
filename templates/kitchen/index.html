@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Kitchen Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Kitchen Dashboard</h1>
+    <p>Welcome to the Kitchen Dashboard!</p>
+    <h2>Available Cooks:</h2>
+    {% for cook in cook_list %}
+      <p>{{ cook.name}}</p>
+    {% endfor %}
+{% endblock %}
