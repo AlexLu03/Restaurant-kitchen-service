@@ -16,7 +16,15 @@
       {% for cook in cook_list %}
         <li>
           {{cook.username}}
+          <a href="{% url 'kitchen:cook-update' cook.pk %}" class="btn btn-secondary link-to-page">
+            Update
+          </a>
+          <span class="action-separator">/</span>
+          <a href="{% url 'kitchen:cook-delete' cook.pk %}" class="btn btn-danger link-to-page">
+            Delete
+          </a>
         </li>
+      {% endfor %}
     </ul>
   {% else %}
     <p>No cooks in list</p>
