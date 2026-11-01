@@ -21,6 +21,7 @@ from kitchen.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', index, name='index'),
     path('kitchen/', include('kitchen.urls')),
 ]
