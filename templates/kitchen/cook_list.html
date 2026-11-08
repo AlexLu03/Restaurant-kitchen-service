@@ -15,7 +15,7 @@
     <ul>
       {% for cook in cook_list %}
         <li>
-          {{cook.username}}
+          <a href="{% url 'kitchen:cook-detail' cook.pk %}">{{cook.username}}</a>
           <a href="{% url 'kitchen:cook-update' cook.pk %}" class="btn btn-secondary link-to-page">
             Update
           </a>
