@@ -9,6 +9,33 @@
   <br>
 
   <li class="list-group-item"><a href="{% url 'index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'kitchen:cook-list' %}">Cooks info</a></li>
-  <li class="list-group-item"><a href="{% url 'kitchen:cook-create' %}">Create new cook</a></li>
+  <li class="list-group-item">
+    <details>
+      <summary>Cooks</summary>
+      <ul>
+        <li><a href="{% url 'kitchen:cook-list' %}">Cooks info</a></li>
+        <li><a href="{% url 'kitchen:cook-create' %}">Create new cook</a></li>
+      </ul>
+    </details>
+  </li>
+
+  <li class="list-group-item">
+    <details>
+      <summary>Dishes</summary>
+      <ul>
+        <li><a href="{% url 'kitchen:dish-list' %}">Dishes info</a></li>
+        <li><a href="{% url 'kitchen:dish-create' %}">Create new dish</a></li>
+      </ul>
+    </details>
+  </li>
+
+  <li class="list-group-item">
+    <details>
+      <summary>Dish Types</summary>
+      <ul>
+        <li><a href="{% url 'kitchen:dishtype-list' %}">Dish Types info</a></li>
+        <li><a href="{% url 'kitchen:dishtype-create' %}">Create new dish type</a></li>
+      </ul>
+    </details>
+  </li>
 </ul>
