@@ -100,3 +100,48 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
     template_name = 'kitchen/cook_detail.html'
+
+
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    fields = ['name']
+    template_name = 'kitchen/dishtype_form.html'
+    success_url = reverse_lazy('kitchen:dishtype-list')
+
+
+class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = DishType
+    template_name = 'kitchen/dishtype_confirm_delete.html'
+    success_url = reverse_lazy('kitchen:dishtype-list')
+
+
+class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = DishType
+    fields = ['name']
+    template_name = 'kitchen/dishtype_form.html'
+    success_url = reverse_lazy('kitchen:dishtype-list')
+
+
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Dish
+    fields = ['name', 'description', 'price', 'dish_type']
+    template_name = 'kitchen/dish_form.html'
+    success_url = reverse_lazy('kitchen:dish-list')
+
+
+class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Dish
+    fields = ['name', 'description', 'price', 'dish_type']
+    template_name = 'kitchen/dish_form.html'
+    success_url = reverse_lazy('kitchen:dish-list')
+
+
+class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Dish
+    template_name = 'kitchen/dish_confirm_delete.html'
+    success_url = reverse_lazy('kitchen:dish-list')
+
+
+class DishDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Dish
+    template_name = 'kitchen/dish_detail.html'
