@@ -7,10 +7,10 @@
   <p>Price: ${{ dish.price }}</p>
   <p>Dish Type: {{ dish.dish_type.name }}</p>
 
-  <h2>Dishes</h2>
-  {% for dish in cook.dishes.all %}
-    <p>{{ dish.name }} - {{ dish.description }}</p>
+  <h2>Cooks</h2>
+  {% for cook in dish.cooks.all %}
+    <p>{{ cook.get_full_name }}, Nickname: {{ cook.nickname }}</p>
   {% empty %}
-    <p>No dishes available.</p>
+    <p>No cooks available.</p>
   {% endfor %}
 {% endblock %}
