@@ -1,28 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Dish Type List
-    <a href="{% url 'kitchen:dishtype-create' %}" class="btn btn-primary link-to-page">
-      Create Dish Type
-    </a>
-  </h1>
-  {% if dishtype_list %}
-    <ul>
-      {% for dishtype in dishtype_list %}
-        <li>
-          Dish type: {{ dishtype.name }}
-          <span class="action-separator">/</span>
-          <a href="{% url 'kitchen:dishtype-update' dishtype.pk %}" class="btn btn-secondary link-to-page">
+  <header class="page-header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <h1 class="h2 font-weight-bold mb-1">Dish Type List</h1>
+        <p class="mb-0" style="color: var(--text-muted);">Categories of dishes in the kitchen</p>
+      </div>
+      <a href="{% url 'kitchen:dishtype-create' %}" class="btn btn-purple">
+        + Create Dish Type
+      </a>
+    </div>
+  </header>
+
+  <main class="container pb-5">
+    {% for dish_type in dishtype_list %}
+      <div class="item-row-card">
+        <div class="item-title">
+          {{ dish_type.name }}
+        </div>
+        <div class="d-flex" style="gap: 0.5rem;">
+          <a href="{% url 'kitchen:dishtype-update' pk=dish_type.id %}" class="btn btn-sm btn-outline-bronze">
             Update
           </a>
-          <span class="action-separator">/</span>
-          <a href="{% url 'kitchen:dishtype-delete' dishtype.pk %}" class="btn btn-danger link-to-page">
+          <a href="{% url 'kitchen:dishtype-delete' pk=dish_type.id %}" class="btn btn-sm btn-outline-danger-dark">
             Delete
           </a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No dish types in list</p>
-  {% endif %}
+        </div>
+      </div>
+    {% empty %}
+      <div class="item-row-card">
+        <span style="color: var(--text-muted);">No dish types yet.</span>
+      </div>
+    {% endfor %}
+  </main>
 {% endblock %}

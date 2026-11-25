@@ -1,13 +1,41 @@
 {% extends "base.html" %}
-{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>
-    {% if form.instance.pk %}Update Dish{% else %}Create Dish{% endif %}
-  </h1>
-  <form method="post" action="">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Submit" class="btn btn-primary">
-  </form>
+  <header class="page-header">
+    <div class="container">
+      <h1 class="h2 font-weight-bold mb-1">
+        {{ object|yesno:"Update Dish,Create Dish" }}
+      </h1>
+      <p class="mb-0" style="color: var(--text-muted);">
+        {% if object %}
+          Edit details, price, or assigned cooks for "{{ object.name }}"
+        {% else %}
+          Add a new dish to the kitchen menu
+        {% endif %}
+      </p>
+    </div>
+  </header>
+
+  <main class="container pb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-7">
+        <div class="form-card">
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <div class="d-flex justify-content-end align-items-center mt-4" style="gap: 0.75rem;">
+              <a href="{% url 'kitchen:dish-list' %}" class="btn-cancel-dark">
+                Cancel
+              </a>
+              <button type="submit" class="btn btn-purple px-4">
+                Save Dish
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
 {% endblock %}
