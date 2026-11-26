@@ -1,9 +1,44 @@
 {% extends "base.html" %}
 
-{% block title %}Kitchen Dashboard{% endblock %}
-
 {% block content %}
-    <h1>Kitchen Dashboard</h1>
-    <p>Welcome to the Kitchen Dashboard!</p>
-    <p>Here you can manage your kitchen operations. Choose an available cooks and what kind of services they can provide.</p>
+  <header class="hero-section text-center">
+    <div class="container pt-4">
+      <h1 class="display-4 font-weight-bold mb-2">Kitchen Service</h1>
+      <p class="hero-subtitle mb-0">Manage dishes, categories, and assign the right chefs</p>
+    </div>
+  </header>
+
+  <main class="container stats-wrapper pb-5">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <a href="{% url 'kitchen:dishtype-list' %}" class="text-decoration-none">
+          <div class="stat-card">
+            <div class="stat-number">{{ num_dish_types }}</div>
+            <div class="stat-label">Dish Types</div>
+            <div class="stat-hint">Menu categories</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <a href="{% url 'kitchen:dish-list' %}" class="text-decoration-none">
+          <div class="stat-card">
+            <div class="stat-number">{{ num_dishes }}</div>
+            <div class="stat-label">Dishes</div>
+            <div class="stat-hint">Available positions</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <a href="{% url 'kitchen:cook-list' %}" class="text-decoration-none">
+          <div class="stat-card">
+            <div class="stat-number">{{ num_cooks }}</div>
+            <div class="stat-label">Cooks</div>
+            <div class="stat-hint">Kitchen team</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
 {% endblock %}
