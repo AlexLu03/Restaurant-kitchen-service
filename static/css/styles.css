@@ -238,3 +238,15 @@ body {
   border-color: #e57373;
   color: #fff;
 }
+
+.entity-card {
+  background-color: var(--bg-surface, #181818);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}

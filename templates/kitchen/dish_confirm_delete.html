@@ -1,11 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete Dish?</h1>
-  <p>Are you sure, you about to delete {{ dish.name }}?</p>
-  <form action="" method="post">
-    {% csrf_token %}
+  <div style="padding-top: 6.5rem;">
+    <header class="page-header">
+      <div class="container d-flex justify-content-between align-items-center">
+        <div>
+          <h1 class="h2 font-weight-bold mb-1">Delete page</h1>
+          <p class="mb-0" style="color: red;">You about to delete dish!!!</p>
+        </div>
+      </div>
+    </header>
+  </div>
 
-    <input type="submit" value="Yes" class="btn btn-danger">
-  </form>
+  <main class="container pb-5">
+    <div class="item-title"> {{ dish.name }}
+      <div class="d-flex" style="gap:0.5rem;">
+        <form action="" method="post" class="btn-action-delete">
+          {% csrf_token %}
+          <input type="submit" value="Yes" class="btn btn-danger">
+        </form>
+        or
+        <a href="{% url 'kitchen:dish-list' %}" class="btn btn-sm btn-outline-bronze">
+          Cancel
+        </a>
+      </div>
+    </div>
+  </main>
 {% endblock %}

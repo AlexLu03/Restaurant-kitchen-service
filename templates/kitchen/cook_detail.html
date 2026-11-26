@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container pb-5">
   <h1>{{ cook.get_full_name }}</h1>
 
   <p>Login: {{ cook.username }}</p>
@@ -13,4 +14,5 @@
   {% empty %}
     <p>No dishes available.</p>
   {% endfor %}
+</div>
 {% endblock %}

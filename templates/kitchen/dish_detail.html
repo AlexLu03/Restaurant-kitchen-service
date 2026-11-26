@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ dish.name }}</h1>
+  <div class="container pb-5">
+    <h1>{{ dish.name }}</h1>
 
-  <p>Description: {{ dish.description }}</p>
-  <p>Price: ${{ dish.price }}</p>
-  <p>Dish Type: {{ dish.dish_type.name }}</p>
+    <p>Description: {{ dish.description }}</p>
+    <p>Price: ${{ dish.price }}</p>
+    <p>Dish Type: {{ dish.dish_type.name }}</p>
 
-  <h2>Cooks</h2>
-  {% for cook in dish.cooks.all %}
-    <p>{{ cook.get_full_name }}, Nickname: {{ cook.username }}</p>
-  {% empty %}
-    <p>No cooks available.</p>
-  {% endfor %}
+    <h2>Cooks</h2>
+    {% for cook in dish.cooks.all %}
+      <p>{{ cook.get_full_name }}, Nickname: {{ cook.username }}</p>
+    {% empty %}
+      <p>No cooks available.</p>
+    {% endfor %}
+  </div>
 {% endblock %}
